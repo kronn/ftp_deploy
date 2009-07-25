@@ -10,15 +10,22 @@ class FtpChange
 	def self.delete( path )
 		self.new(path, DELETE)
 	end
-
 	def self.change( path )
 		self.new(path, CHANGE)
 	end
 
-	def execute_via( ftp_connection )
-		raise NotImplementedError
+	def base_pathnames( local, remote = nil )
+		@local_base = Pathname.new(local.to_s).realpath
+		@remote_base = Pathname.new(remote.to_s)
 	end
 
+	def execute_via( ftp_connection )
+		case @action
+		when DELETE then ftp_connection.send( action, remote_path )
+		else ftp_connection.send( action, local_path, remote_path )
+		end
+	end
+	
 	def action
 		if @path.directory?
 			directory_action
@@ -41,5 +48,13 @@ class FtpChange
 		when DELETE then :delete
 		else :put
 		end
+	end
+
+	def local_path
+		@path.relative_path_from(@local_base)
+	end
+
+	def remote_path
+		@remote_base + @path.relative_path_from(@local_base)
 	end
 end

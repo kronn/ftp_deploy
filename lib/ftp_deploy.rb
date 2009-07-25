@@ -9,7 +9,8 @@ class FtpDeploy
 
 	def deploy
 		changelist.each do |change|
-			change.execute_via @ftp_connection
+			change.base_pathnames( @config[:local_base_path], @config[:remote_base_path] )
+			change.execute_via( @ftp_connection )
 		end
 	end
 
