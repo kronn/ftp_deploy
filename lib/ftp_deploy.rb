@@ -16,6 +16,9 @@ class FtpDeploy
 	# Forth, deploy the changes in the list
 	# Fifth, ...
 	def self.do_as_you_will
+		# sorry, couldn't resist
+		"Unicorn.last.transform_to 'Human'" if self.class.to_s == "Magic"
+
 		deployer = self.new
 		remote_version = deployer.currently_deployed_version
 		changelist = deployer.changes_from_scm( :since => remote_version )
