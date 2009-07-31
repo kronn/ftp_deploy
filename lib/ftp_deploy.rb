@@ -25,6 +25,15 @@ class FtpDeploy
 		deployer.deploy( changelist )
 	end
 
+	def currently_deployed_version
+		# @ftp_connection.get @config[:deployed_version_file]
+	end
+
+	# changes_from_scm( :since => @config[:last_deployed] )
+	def changes_from_scm( options )
+		[] # changes.each { |change| FtpChange.new( change.path, change.action ) }
+	end
+
 	def deploy( changelist = [] )
 		changelist.each do |change|
 			change.base_pathnames( @config[:local_base_path], @config[:remote_base_path] )
@@ -32,12 +41,9 @@ class FtpDeploy
 		end
 	end
 
+	private
+
 	def read_config
 		{} # hash from yaml or ruby-file
-	end
-
-	# changes_from_scm( :since => @config[:last_deployed] )
-	def changes_from_scm( options )
-		[] # changes.each { |change| FtpChange.new( change.path, change.action ) }
 	end
 end
