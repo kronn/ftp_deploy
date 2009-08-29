@@ -10,6 +10,8 @@ module SCM
 		def find_version
 			%x[ #{@binary} info ] =~ /Revision: (\d+)/m
 			@revision = Regexp.last_match[1].to_i unless Regexp.last_match.nil?
+
+			@revision
 		end
 	end
 end
