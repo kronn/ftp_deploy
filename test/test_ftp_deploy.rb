@@ -1,6 +1,7 @@
 require 'test/unit/testcase'
 require 'test/unit' if $0 == __FILE__
 
+=begin
 class TestFtpDeploy < Test::Unit::TestCase
   def test_class_do_as_you_will
     raise NotImplementedError, 'Need to write test_class_do_as_you_will'
@@ -18,3 +19,4 @@ class TestFtpDeploy < Test::Unit::TestCase
     raise NotImplementedError, 'Need to write test_deploy'
   end
 end
+=end

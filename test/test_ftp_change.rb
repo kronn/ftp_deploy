@@ -1,6 +1,7 @@
 require 'test/unit/testcase'
 require 'test/unit' if $0 == __FILE__
 
+=begin
 class TestFtpChange < Test::Unit::TestCase
   def test_class_change
     raise NotImplementedError, 'Need to write test_class_change'
@@ -38,3 +39,4 @@ class TestFtpChange < Test::Unit::TestCase
     raise NotImplementedError, 'Need to write test_remote_path'
   end
 end
+=end
