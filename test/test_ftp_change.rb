@@ -2,7 +2,6 @@ require 'test/unit/testcase'
 require 'test/unit' if $0 == __FILE__
 require File.dirname(__FILE__)+'/../lib/ftp_change.rb'
 
-=begin
 class TestFtpChange < Test::Unit::TestCase
   def test_class_change
 		instance = FtpChange.change '../README'
@@ -59,4 +58,3 @@ class TestFtpChange < Test::Unit::TestCase
   #   raise NotImplementedError, 'Need to write test_remote_path'
   # end
 end
-=end
