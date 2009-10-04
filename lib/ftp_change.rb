@@ -1,3 +1,4 @@
+require 'pathname'
 class FtpChange
 	CHANGE = :change
 	DELETE = :delete
