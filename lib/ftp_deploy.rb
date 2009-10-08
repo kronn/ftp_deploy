@@ -30,7 +30,7 @@ class FtpDeploy
 	end
 
 	# changes_from_scm( :since => @config[:last_deployed] )
-	def changes_from_scm( options )
+	def changes_from_scm( options = {} )
 		[] # changes.each { |change| FtpChange.new( change.path, change.action ) }
 	end
 
