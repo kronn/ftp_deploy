@@ -1,4 +1,5 @@
 require 'net/ftp'
+require 'pathname'
 
 class FtpDeploy
 	def initialize( config = {} )
@@ -44,6 +45,20 @@ class FtpDeploy
 	private
 
 	def read_config
-		{} # hash from yaml or ruby-file
+		config_file = Pathname.new('./config.yml')
+		defaults = {
+			:scm => :svn,
+			:deployed_version_file => 'REVISION',
+			:server => {
+				:host => '',
+				:user => 'anonymous',
+				:password => 'kronn-ftp_deploy@github.com',
+				:port => 21
+			}
+		}
+
+		config = ( config_file.exist? ) ? YAML.load_file( config_file ) : {}
+
+		defaults.merge( config )
 	end
 end
