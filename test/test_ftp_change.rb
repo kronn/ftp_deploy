@@ -1,6 +1,6 @@
 require 'test/unit/testcase'
 require 'test/unit' if $0 == __FILE__
-require File.dirname(__FILE__)+'/../lib/ftp_change.rb'
+require File.dirname(__FILE__)+'/../lib/ftp_deploy/ftp_change.rb'
 
 class TestFtpChange < Test::Unit::TestCase
   def test_class_change

@@ -21,8 +21,8 @@ class TestFtpDeploy < Test::Unit::TestCase
   # end
 
   def test_init
-    # assert_nil FtpDeploy.new.instance_variable_get( '@source_control' )
-    assert_equal :svn, FtpDeploy.new(:scm => :svn).instance_variable_get( '@source_control' )
+    assert_equal :svn, FtpDeploy.new.instance_variable_get( '@source_control' )
+    assert_equal :git, FtpDeploy.new(:scm => :git).instance_variable_get( '@source_control' )
 
     assert_not_nil FtpDeploy.new( :host => 'ftp.netbsd.org', :user => 'anonymous', :password => 'i_want_to@get.in' ).instance_variable_get( '@ftp_connection' )
   end

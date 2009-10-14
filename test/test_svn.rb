@@ -1,6 +1,6 @@
 require 'test/unit/testcase'
 require 'test/unit' if $0 == __FILE__
-require 'lib/svn'
+require 'lib/ftp_deploy/svn'
 
 class TestSvn < Test::Unit::TestCase
 	def setup
