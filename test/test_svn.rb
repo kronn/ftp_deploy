@@ -63,7 +63,7 @@ class TestSvn < Test::Unit::TestCase
 	def common_teardown
 		system "rm -rf #{@test_svn_dir}"
 	end
-	def with_svn_dir (&block)
+	def with_svn_dir( &block )
 		common_setup
 		yield
 		common_teardown

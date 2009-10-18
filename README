@@ -1,3 +1,3 @@
-Deployment of projects which are under version control seems easy as long as you can work directly on the target machine. If you're bound to FTP, it sucks. 
+Deployment of projects which are under version control seems easy as long as you can work directly on the target machine. If you're bound to FTP, it sucks.
 
 This script aims to ease the pain.
