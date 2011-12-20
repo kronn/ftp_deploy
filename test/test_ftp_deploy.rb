@@ -31,14 +31,14 @@ class TestFtpDeploy < Test::Unit::TestCase
     assert_nothing_raised do
       config_file = Pathname.new('./config.yml')
       config_file.open('w') do |file|
-        file.write <<YAML
+        file.write <<-YAML
 :server:
   :host: "ftp.netbsd.org"
   :user: "anonymous"
   :password: "i_want_to@get.in"
 
 :scm: :svn
-YAML
+        YAML
       end
 
       fd = FtpDeploy.new
