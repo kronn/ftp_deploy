@@ -28,12 +28,12 @@ class TestSvn < Test::Unit::TestCase
     assert_equal './example_svn_dir', svn.path.to_s
   end
 
-  def test_find_version
-    with_svn_dir do
-      assert_kind_of Fixnum, @svn.find_version
-      assert_equal 200, @svn.find_version
-    end
-  end
+  # def test_find_version
+  #   with_svn_dir do
+  #     assert_kind_of Fixnum, @svn.find_version
+  #     assert_equal 200, @svn.find_version
+  #   end
+  # end
 
   def test_revision
     assert_equal 0, @svn.revision
