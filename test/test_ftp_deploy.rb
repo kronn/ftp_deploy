@@ -1,7 +1,4 @@
-require 'test/unit/testcase'
-require 'test/unit' if $0 == __FILE__
-require File.dirname(__FILE__)+'/../lib/ftp_deploy.rb'
-require 'pathname'
+require 'helper'
 
 class TestFtpDeploy < Test::Unit::TestCase
   # def test_class_do_as_you_will
@@ -20,11 +17,23 @@ class TestFtpDeploy < Test::Unit::TestCase
   #   raise NotImplementedError, 'Need to write test_deploy'
   # end
 
-  def test_init
-    assert_equal :svn, FtpDeploy.new.instance_variable_get( '@source_control' )
-    assert_equal :git, FtpDeploy.new(:scm => :git).instance_variable_get( '@source_control' )
+  def test_source_control_can_be_set
+    assert_equal :svn, FtpDeploy.new(:scm => :svn).source_control
+    assert_equal :git, FtpDeploy.new(:scm => :git).source_control
+  end
 
-    assert_not_nil FtpDeploy.new( :host => 'ftp.netbsd.org', :user => 'anonymous', :password => 'i_want_to@get.in' ).instance_variable_get( '@ftp_connection' )
+  def test_git_is_default_scm
+    assert_equal :git, FtpDeploy.new.source_control
+  end
+
+  def test_ftp_connection_is_started
+    Net::FTP.expects(:new).with('ftp.netbsd.org', 'anonymous', 'i_want_to@get.in').returns(:ftp_handle)
+
+    assert_equal :ftp_handle, FtpDeploy.new(
+      :host => 'ftp.netbsd.org',
+      :user => 'anonymous',
+      :password => 'i_want_to@get.in'
+    ).ftp_connection
   end
 
   def test_config_read

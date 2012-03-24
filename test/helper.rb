@@ -1,4 +1,7 @@
 require 'test/unit'
-require 'lib/ftp_deploy/ftp_change.rb'
+
+require 'ftp_deploy'
+require 'ftp_deploy/ftp_change.rb'
+require 'mocha'
 require 'yaml'
 require 'redgreen'

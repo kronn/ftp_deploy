@@ -2,6 +2,8 @@ require 'net/ftp'
 require 'pathname'
 
 class FtpDeploy
+  attr_reader :source_control, :ftp_connection
+
   def initialize( config = {} )
     @config = read_config.merge( config )
 
@@ -47,7 +49,7 @@ class FtpDeploy
   def read_config
     config_file = Pathname.new('./config.yml')
     defaults = {
-      :scm => :svn,
+      :scm => :git,
       :deployed_version_file => 'REVISION',
       :server => {
         :host => '',

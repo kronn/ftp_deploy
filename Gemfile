@@ -10,5 +10,8 @@ group :development do
     gem 'libnotify'
   end
 
+  gem 'mocha'
+
   gem 'pry'
 end
+
