@@ -1,5 +1,8 @@
 source :rubygems
 
+# Specify your gem's dependencies in ftp_deploy.gemspec
+gemspec
+
 group :development do
   gem 'redgreen'
 
@@ -14,4 +17,3 @@ group :development do
 
   gem 'pry'
 end
-
