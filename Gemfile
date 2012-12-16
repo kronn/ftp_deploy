@@ -9,7 +9,7 @@ group :development do
   gem 'guard'
   gem 'guard-bundler'
   gem 'guard-rake'
-  if Config::CONFIG['host_os'] =~ /linux/
+  if RbConfig::CONFIG['host_os'] =~ /linux/
     gem 'libnotify'
   end
 
